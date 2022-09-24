@@ -12,6 +12,9 @@ int (*check_specifier(const char *format))(va_list args)
 	print_type p[] = {
 		{"c", print_c},
 		{"s", print_s},
+		{"d", print_d},
+		{"i", print_i},
+		{"b", print_b},
 		{NULL, NULL}
 	};
 
