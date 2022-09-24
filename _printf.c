@@ -36,7 +36,7 @@ int (*check_specifier(const char *format))(va_list args)
  */
 int _printf(const char *format, ...)
 {
-	unsigned int i, count = 0;
+	unsigned int i = 0, count = 0;
 	va_list valist;
 	int (*f)(va_list);
 
@@ -45,7 +45,7 @@ int _printf(const char *format, ...)
 	va_start(valist, format);
 	while (format[i])
 	{
-		for (i = 0; format[i] != '%' && format[i]; i++)
+		for (; format[i] != '%' && format[i]; i++)
 		{
 			_putchar(format[i]);
 			count++;
