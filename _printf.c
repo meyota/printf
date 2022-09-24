@@ -6,7 +6,8 @@
  *
  * Return: pointer to valid function or NULL
  */
-int (*check_specifier(const char *format))(va_list args)
+
+static int (*check_specifier(const char *format))(va_list)
 {
 	unsigned int i;
 	print_type p[] = {
