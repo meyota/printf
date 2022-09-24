@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
 
 /**
  * check_for_specifiers - checks if there is a valid format specifier
@@ -7,10 +6,10 @@
  *
  * Return: pointer to valid function or NULL
  */
-static int (*check_for_specifiers(const char *format))(va_list)
+int (*check_specifier(const char *format))(va_list args)
 {
 	unsigned int i;
-	print_t p[] = {
+	print_type p[] = {
 		{"c", print_c},
 		{"s", print_s},
 		{NULL, NULL}
@@ -50,7 +49,7 @@ int _printf(const char *format, ...)
 		}
 		if (!format[i])
 			return (count);
-		f = check_for_specifiers(&format[i + 1]);
+		f = check_specifier(&format[i + 1]);
 		if (f != NULL)
 		{
 			count += f(valist);
