@@ -27,10 +27,9 @@ int (*check_specifier(const char *format))(va_list args)
 	for (i = 0; p[i].t != NULL; i++)
 	{
 		if (*(p[i].t) == *format)
-		{
 			break;
-		}
 	}
+
 	return (p[i].f);
 }
 
@@ -48,7 +47,9 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 		return (-1);
+
 	va_start(valist, format);
+
 	while (format[i])
 	{
 		for (; format[i] != '%' && format[i]; i++)
@@ -56,8 +57,10 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 			count++;
 		}
+
 		if (!format[i])
 			return (count);
+
 		f = check_specifier(&format[i + 1]);
 		if (f != NULL)
 		{
