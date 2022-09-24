@@ -34,5 +34,6 @@ int print_S(va_list S);
 int print_hex(unsigned int n, unsigned int c);
 int hex_print(char c);
 int print_p(va_list p);
+int print_r(va_list r);
 
 #endif
